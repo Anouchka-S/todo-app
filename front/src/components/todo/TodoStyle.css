@@ -1,0 +1,70 @@
+.component {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    align-items: center;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+
+.indicator {
+    display: block;
+    width: 10px;
+    height:30px;
+    background-color: #1565c0;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.indicator--EASY {
+    background-color: #22D6A0;
+}
+
+.indicator--MEDIUM {
+    background-color: #FEC33E;
+}
+
+.indicator--HARD {
+    background-color: #EB446D;
+}
+
+.indicator--CHECKED {
+    background-color: gray;
+}
+
+.title-todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 10;
+}
+
+.title-todo--CHECKED {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    color: gray;
+    cursor: pointer;
+}
+
+.description {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    background-color: white;
+}
