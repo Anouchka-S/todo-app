@@ -1,4 +1,4 @@
-todo-back
+todo-app
 =============
 
 Welcome to your [Plume](https://github.com/Coreoz/Plume) project!
