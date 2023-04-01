@@ -1,0 +1,44 @@
+.mask {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #0093ff4a;
+}
+
+.popin {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
+}
+
+.title-popin {
+    display: flex;
+    justify-content: space-between;
+    color: #1565c0;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.space {
+    padding: 10px;
+}
+
+.close {
+    cursor: pointer;
+}
