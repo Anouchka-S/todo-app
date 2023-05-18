@@ -1,123 +1,113 @@
 todo-app
 =============
 
-Welcome to your [Plume](https://github.com/Coreoz/Plume) project!
-Here are some reminders to get your project up and running.
+LE TALLEC Florian / SEEGOBIN Anouchka
 
-Configuring your IDE
+Bienvenue sur l'application `MyTodo` qui permet de gérer ses taches.
+L'application permet, de récupperer, d'ajouter, de modifier et de supprimer des tâches
+
+Présentation de la stack
 --------------------
-Install [Lombok](https://projectlombok.org/): http://jnb.ociweb.com/jnb/jnbJan2010.html#installation
+Ce projet web est commposé d'un back et d'un front :
 
-Launching the server
+- **Front-end :** Nous avons utilisé [Vite.js](https://vitejs.dev/), un outil de développement rapide basé sur
+  JavaScript, pour optimiser les performances de notre application. Nous avons également utilisé TypeScript pour
+  bénéficier de la vérification statique des types et faciliter la maintenabilité du code. Enfin, nous avons construit
+  l'interface utilisateur en utilisant React.
+
+
+- **Back-end :** Pour la partie back-end de notre application, nous avons choisi Java et Maven pour la gestion des
+  dépendances. Nous avons utilisé une framework proche de Spring appelée Plume développé par Coreoz pour faciliter le
+  développement de
+  notre API. Nous avons opté pour une base de données H2, une base de données relationnelle en mémoire, pour des raisons
+  de simplicité et de
+  facilité de déploiement. Enfin, nous avons utilisé Querydsl, un framework de requête SQL.
+
+Lancer le projet
 --------------------
-Just run the `com.todo.WebApplication` class, you can then open your browser to <http://localhost:8080>.
 
-Configuration
--------------
-The configuration file is located in `src/main/resources/application.conf`.
-If you have any doubt, check out the [configuration documentation](https://github.com/Coreoz/Plume/tree/master/plume-conf). 
+### Lancer le back
 
-Database
---------
-To connect to a database, the Plume Querydsl module must be configured:
-1. Setup the database connector in the `pom.xml` file (look for the "PUT YOUR DATABASE CONNECTOR HERE" comment
-2. Setup the database connection parameters in the `application.conf` file,
-see the [Plume Querydsl documentation](https://github.com/Coreoz/Plume/tree/master/plume-db-querydsl#configuration) for details
-3. Add the Plume Querydsl module in the Guice configuration class `ApplicationModule`
-by uncommenting the line `install(new GuiceQuerydslModule());`
+Pour lancer le back vous pouvez utiliser le jdk **openjdk-18**, ensuite une fois que les dépendances maven son intallés
+il
+il faut se rendre dans le fichier `WebApplication.java` est le `run`. Ce fichier se trouve dans le dossier :
+`src/main/com.todo`.
 
-To generate classes corresponding to the database tables,
-you can run the `com.todo.db.QuerydslGenerator.main()` method.
-Before the first run, do not forget to configure
-the `TABLES_PREFIX` constant in `QuerydslGenerator`, to match your tables prefix.
-For example, if your tables are named `abc_film` and `abc_actor`, then your prefix will be `abc_`.
+Une fois le back lancé, vous pouver lancer le front.
 
-See the detailed documentations:
-- [Plume Database](https://github.com/Coreoz/Plume/tree/master/plume-db)
-- [Plume Querydsl](https://github.com/Coreoz/Plume/tree/master/plume-db-querydsl)
-- [Plume Querydsl codegen](https://github.com/Coreoz/Plume/tree/master/plume-db-querydsl-codegen)
+### Lancer le front
 
-Removing Qurerydsl
-------------------
-To completly get rid of the database component:
-1. Remove the line `install(new GuiceQuerydslModule());` in the `ApplicationModule` class,
-2. Remove the package `db` in the project,
-3. Remove the dependencies `plume-db-querydsl` and `plume-db-querydsl-codegen` in the `pom.xml` file.
+- Le projet tourne avec la version de node : 18.10.0
+- pour installer yarn vous pouver executer la commande si dessous
+- Ouvrez le terminal à la racine du projet
+- entrez la commande `cd front`
+- entrez la commande `yarn` pour installer les dépendances
+- entrez la commande `yarn run dev`
+- cliquez sur le lien
 
-Swagger
--------
-Swagger is pre-configured to provide documentation about the project web-services.
-This documentation is protected by credentials that should be configured in the `application.conf` file.
-
-To access this documentation, start the project
-and go to <http://localhost:8080/webjars/swagger-ui/4.1.2/index.html?url=/api/swagger>.
-As a reminder, the default Swagger credentials are: `swagger//password`.
-
-More modules
-------------
-- [Plume Mail](https://github.com/Coreoz/Plume/tree/master/plume-mail): send mails,
-- [Plume Scheduler](https://github.com/Coreoz/Plume/tree/master/plume-scheduler): schedule recurring Java jobs/tasks,
-- [Plume Admin](https://github.com/Coreoz/Plume-admin): web-service with a security layer to create an admin area,
-- [Plume Admin AngularJs](https://github.com/Coreoz/Plume-admin-ui-angularjs): an administration HTML/JS UI that use Plume Admin,
-- [Plume File](https://github.com/Coreoz/Plume-file/tree/master/plume-file-core): manage and serve files,
-- [Plume File Gallery](https://github.com/Coreoz/Plume-file/tree/master/plume-file-gallery): manage medias galleries.
-
-Check the [demo project](https://github.com/Coreoz/Plume-demo/tree/master/plume-demo-full-guice-jersey)
-to see an example with these modules.
-
-Deploying to production
------------------------
-In the default mode, when `mvn package` is executed, a zip files is generated.
-This file contains all the projects jar files and startup BAT/Bash files.
-These startup files will not work since they are built only for Play Framework.
-This solution is not ideal, eventually we should make our own Maven plugin
-so that the startup files works correctly with Plume Framework.
-
-If `appserver` is used, then configure the server with `export SERVER=javazip`,
-it will correctly build and launch the project.
-If not there are 3 solutions:
-- switch back to the WAR file generation: see the [Plume War archetype](https://github.com/Coreoz/Plume-archetypes/tree/master/plume-archetype-querydsl-jersey-guice),
-- create a maven plugin like `play2-maven-plugin` that produce Plume compatible startup scripts (if you choose this option, please share your work :),
-- replace in the `pom.xml` file the `play2-maven-plugin` and the `maven-jar-plugin` plugins by
-```xml
-<!-- single jar executable with all dependencies -->
-<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-shade-plugin</artifactId>
-	<version>3.1.0</version>
-	<configuration>
-		<filters>
-			<filter>
-				<artifact>*:*</artifact>
-				<excludes>
-					<exclude>META-INF/*.SF</exclude>
-					<exclude>META-INF/*.DSA</exclude>
-					<exclude>META-INF/*.RSA</exclude>
-				</excludes>
-			</filter>
-		</filters>
-	</configuration>
-	<executions>
-		<execution>
-			<phase>package</phase>
-			<goals>
-				<goal>shade</goal>
-			</goals>
-			<configuration>
-				<transformers>
-					<transformer
-						implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-					<transformer
-						implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-						<mainClass>com.todo.WebApplication</mainClass>
-					</transformer>
-				</transformers>
-			</configuration>
-		</execution>
-	</executions>
-</plugin>
 ```
-With this solution, `mvn package` will produce an executable jar file.
-Note that this last solution may produce side effects: files that share the same name can be overriden.
-However all Plume modules will work as expected with this solution.
+npm install --global yarn
+```
 
+Avancement du projet
+--------------------
+
+### 1. Create a web application
+
+- Langages choisis Java,Typescript
+- Base de données H2
+
+Le CRUD fonctionne
+
+### 2. Apply CI/CD pipeline
+
+- Nous avons utilisé des gitlab CI/CD, pour verifier le back et le front
+
+### 3. Configure and provision a virtual environment and run your application using the IaC approach
+
+- Nous n'avons pas fait cette partie
+
+### 4. Build Docker image of your application
+
+- Pour docker nous avons fait le choix d'avoir deux images docker séparées, une pour le back et une pour le front.
+- Pour le back l'image build mais au moment de la start on rencontre un problème avec la base H2
+  Correction
+- Pour le front pas de problèmes tout fonctionne, mais difficile à tester ça le fonctionnemeny de l'app dépend du back
+
+## How to get bonuses?
+
+Every initiative will be counted, just don't forget to describe it in your `README.md`.
+
+List of bonus tasks proposed:
+
+1. Use different tools and platforms instead of what has been passed in the labs, for example, GitLab CI/CD, Netlify,
+   etc. This will give you a bigger overview of technologies.
+2. Use different languages (Java, Ruby, Python, etc.) to develop the application of part 1.
+3. If you use the NodeJS application provided in
+   the [modules/04.ct-ci-cd/assets/userapi](modules/04.ct-ci-cd/assets/userapi) folder, bring it with additional
+   features:
+
+- more different API methods
+- more different unit/functional/integration tests
+- using another database (like MongoDB, MySQL, ...)
+- integrate a documenting package to your source code, for
+  example, [Swagger UI](https://www.npmjs.com/package/express-swagger-generator)
+
+4. Any Kubernetes tasks from [this list](https://kubernetes.io/docs/tasks/).
+5. [Securing microservice communication](https://istio.io/latest/docs/tasks/security/) or any other task with Istio.
+6. Etc.
+
+- 1 - nous avons utilisé des pipelines Gitlab
+- 2 - nous avons utilisé différents langage (typescript, java)
+- 3 - nous avons mis en place un swagger que vous pouvez
+  retrouver [ici](http://localhost:8080/webjars/swagger-ui/4.1.2/index.html?url=/api/swagger) lorsque le projet est
+  lancé
+  indentifiant : ece / mdp: devops
+  (lien : `http://localhost:8080/webjars/swagger-ui/4.1.2/index.html?url=/api/swagger`)
+
+Corrrection
+--------------------
+
+Si vous rencontrez des problèmes pour lancer le projet n'hésitez pas à envoyer un mail à nos adresses mail :
+florian.letallec@edu.ece.fr
+anouchka.seegobin@edu.ece.fr
