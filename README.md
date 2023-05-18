@@ -20,8 +20,7 @@ Ce projet web est commposé d'un back et d'un front :
   dépendances. Nous avons utilisé une framework proche de Spring appelée Plume développé par Coreoz pour faciliter le
   développement de
   notre API. Nous avons opté pour une base de données H2, une base de données relationnelle en mémoire, pour des raisons
-  de simplicité et de
-  facilité de déploiement. Enfin, nous avons utilisé Querydsl, un framework de requête SQL.
+  de simplicité et de facilité de déploiement. Enfin, nous avons utilisé Querydsl, un framework de requête SQL.
 
 Lancer le projet
 --------------------
@@ -38,7 +37,7 @@ Une fois le back lancé, vous pouver lancer le front.
 ### Lancer le front
 
 - Le projet tourne avec la version de node : 18.10.0
-- pour installer yarn vous pouver executer la commande si dessous
+- pour installer yarn vous pouvez executer la commande ci-dessous
 - Ouvrez le terminal à la racine du projet
 - entrez la commande `cd front`
 - entrez la commande `yarn` pour installer les dépendances
@@ -70,8 +69,8 @@ Le CRUD fonctionne
 ### 4. Build Docker image of your application
 
 - Pour docker nous avons fait le choix d'avoir deux images docker séparées, une pour le back et une pour le front.
-- Pour le back l'image build mais au moment de la start on rencontre un problème avec la base H2
-- Pour le front pas de problèmes tout fonctionne, mais difficile à tester ça le fonctionnemeny de l'app dépend du back
+- Pour le back l'image build mais au moment de la start on rencontre un problème avec la base H2.
+- Pour le front pas de problèmes tout fonctionne, mais difficile à tester car le fonctionnement de l'app dépend du back.
 
 ## How to get bonuses?
 
@@ -97,7 +96,7 @@ List of bonus tasks proposed:
 6. Etc.
 
 - 1 - nous avons utilisé des pipelines Gitlab
-- 2 - nous avons utilisé différents langage (typescript, java)
+- 2 - nous avons utilisé différents langages (typescript, java)
 - 3 - nous avons mis en place un swagger que vous pouvez
   retrouver [ici](http://localhost:8080/webjars/swagger-ui/4.1.2/index.html?url=/api/swagger) lorsque le projet est
   lancé
@@ -106,7 +105,10 @@ List of bonus tasks proposed:
 
 Corrrection
 --------------------
+Les commits sous le pseudo erwanLv viennent de Florian LE TALLEC (nom associé à la clé ssh)
 
-Si vous rencontrez des problèmes pour lancer le projet n'hésitez pas à envoyer un mail à nos adresses mail :
+Si vous rencontrez des problèmes pour lancer le projet n'hésitez pas à envoyer un mail à nos adresses mails :
 florian.letallec@edu.ece.fr
 anouchka.seegobin@edu.ece.fr
+
+Vous pouvez retrouver des screens du site dans le dossier screenshot à la racine du projet
