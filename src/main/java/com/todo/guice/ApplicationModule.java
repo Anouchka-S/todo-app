@@ -2,6 +2,7 @@ package com.todo.guice;
 
 import com.coreoz.plume.conf.guice.GuiceConfModule;
 import com.coreoz.plume.db.guice.DataSourceModule;
+import com.coreoz.plume.db.querydsl.guice.GuiceQuerydslModule;
 import com.coreoz.plume.jersey.guice.GuiceJacksonModule;
 import com.google.inject.AbstractModule;
 import com.todo.jersey.JerseyConfigProvider;
@@ -17,8 +18,7 @@ public class ApplicationModule extends AbstractModule {
         install(new GuiceConfModule());
         install(new GuiceJacksonModule());
         install(new DataSourceModule());
-        // database & Querydsl installation
-        //install(new GuiceQuerydslModule());
+        install(new GuiceQuerydslModule());
 
         // prepare Jersey configuration
         bind(ResourceConfig.class).toProvider(JerseyConfigProvider.class);
