@@ -1,0 +1,22 @@
+stages:
+  - tests
+  - deploy
+
+Java tests:
+  stage: tests
+  script:
+    - export JAVA_HOME="/usr/local/java/jdk-17"
+    - mvn verify
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+
+Front UI Tests:
+  stage: tests
+  script:
+    - cd front-ui
+    - yarn install
+  tags:
+    - yarn
