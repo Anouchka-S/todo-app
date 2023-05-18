@@ -1,4 +1,3 @@
-
 todo-app
 =============
 
@@ -72,7 +71,6 @@ Le CRUD fonctionne
 
 - Pour docker nous avons fait le choix d'avoir deux images docker séparées, une pour le back et une pour le front.
 - Pour le back l'image build mais au moment de la start on rencontre un problème avec la base H2
-  Correction
 - Pour le front pas de problèmes tout fonctionne, mais difficile à tester ça le fonctionnemeny de l'app dépend du back
 
 ## How to get bonuses?
