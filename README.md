@@ -112,3 +112,6 @@ florian.letallec@edu.ece.fr
 anouchka.seegobin@edu.ece.fr
 
 Vous pouvez retrouver des screens du site dans le dossier screenshot à la racine du projet
+
+Les pipelines ne passent pas car il faut soit avoir ses propres runners, soit valider son compte en ajoutant sa carte
+bancaire
